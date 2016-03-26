@@ -10,11 +10,20 @@ namespace Katas.Bowling.Tests
             Game g = new Game();
 
             for (int i = 0; i < 20; i++)
-            {
                 g.Roll(0);
-            }
 
             Assert.Equal(0, g.Score);
+        }
+
+        [Fact]
+        public void AllOnes()
+        {
+            Game g = new Game();
+
+            for (int i = 0; i < 20; i++)
+                g.Roll(1);
+
+            Assert.Equal(20, g.Score);
         }
     }
 }
