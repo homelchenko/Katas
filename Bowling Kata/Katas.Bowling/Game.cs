@@ -2,13 +2,24 @@
 {
     public class Game
     {
-        private int score = 0;
+        private int[] rolls = new int[21];
 
-        public int Score => this.score;
+        private int currentRoll = 0;
+
+        public int Score
+        {
+            get
+            {
+                int score = 0;
+                for (int i = 0; i < rolls.Length; i++)
+                    score += rolls[i];
+                return score;
+            }
+        }
 
         public void Roll(int pins)
         {
-            this.score += pins;
+            rolls[currentRoll++] = pins;
         }
     }
 }
