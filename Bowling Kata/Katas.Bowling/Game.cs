@@ -2,9 +2,9 @@
 {
     public class Game
     {
-        private int[] rolls = new int[21];
+        private int currentRoll;
 
-        private int currentRoll = 0;
+        private readonly int[] rolls = new int[21];
 
         public int Score
         {
@@ -12,12 +12,20 @@
             {
                 int score = 0;
 
-                int i = 0;
+                int frameIndex = 0;
 
                 for (int frame = 0; frame < 10; frame++)
                 {
-                    score += rolls[i] + rolls[i + 1];
-                    i += 2;
+                    if (IsSpare(frameIndex))
+                    {
+                        score += 10 + rolls[frameIndex + 2];
+                        frameIndex += 2;
+                    }
+                    else
+                    {
+                        score += rolls[frameIndex] + rolls[frameIndex + 1];
+                        frameIndex += 2;
+                    }
                 }
 
                 return score;
@@ -27,6 +35,11 @@
         public void Roll(int pins)
         {
             rolls[currentRoll++] = pins;
+        }
+
+        private bool IsSpare(int frameIndex)
+        {
+            return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
         }
     }
 }
