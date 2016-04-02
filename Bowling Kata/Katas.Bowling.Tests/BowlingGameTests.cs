@@ -4,30 +4,35 @@ namespace Katas.Bowling.Tests
 {
     public class BowlingGameTests
     {
-        [Fact]
-        public void GutterGame()
+        private readonly Game _game;
+
+        public BowlingGameTests()
         {
-            Game game = new Game();
-
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(0);
-            }
-
-            Assert.Equal(0, game.Score());
+            _game = new Game();
         }
 
         [Fact]
         public void AllOnes()
         {
-            Game game = new Game();
+            RollMany(20, 1);
 
-            for (int i = 0; i < 20; i++)
+            Assert.Equal(20, _game.Score());
+        }
+
+        [Fact]
+        public void GutterGame()
+        {
+            RollMany(20, 0);
+
+            Assert.Equal(0, _game.Score());
+        }
+
+        private void RollMany(int n, int pins)
+        {
+            for (int i = 0; i < n; i++)
             {
-                game.Roll(1);
+                _game.Roll(pins);
             }
-
-            Assert.Equal(20, game.Score());
         }
     }
 }
