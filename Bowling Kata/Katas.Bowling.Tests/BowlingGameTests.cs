@@ -58,11 +58,6 @@ namespace Katas.Bowling.Tests
             Assert.Equal(300, _game.Score());
         }
 
-        private void RollStrike()
-        {
-            _game.Roll(10);
-        }
-
         private void RollMany(int n, int pins)
         {
             for (int i = 0; i < n; i++)
@@ -75,6 +70,11 @@ namespace Katas.Bowling.Tests
         {
             _game.Roll(5);
             _game.Roll(5);
+        }
+
+        private void RollStrike()
+        {
+            _game.Roll(10);
         }
     }
 }
