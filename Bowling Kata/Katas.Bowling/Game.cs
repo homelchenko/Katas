@@ -2,9 +2,9 @@
 {
     public class Game
     {
-        private int currentRoll;
+        private readonly int[] _rolls = new int[21];
 
-        private readonly int[] rolls = new int[21];
+        private int _currentRoll;
 
         public int Score
         {
@@ -16,14 +16,20 @@
 
                 for (int frame = 0; frame < 10; frame++)
                 {
-                    if (IsSpare(frameIndex))
+                    if (IsStrike(frameIndex))
                     {
-                        score += 10 + rolls[frameIndex + 2];
+                        score += 10 + StrikeBonus(frameIndex);
+
+                        frameIndex++;
+                    }
+                    else if (IsSpare(frameIndex))
+                    {
+                        score += 10 + SpareBonus(frameIndex);
                         frameIndex += 2;
                     }
                     else
                     {
-                        score += rolls[frameIndex] + rolls[frameIndex + 1];
+                        score += SumOfBallsInFrame(frameIndex);
                         frameIndex += 2;
                     }
                 }
@@ -34,12 +40,32 @@
 
         public void Roll(int pins)
         {
-            rolls[currentRoll++] = pins;
+            _rolls[_currentRoll++] = pins;
         }
 
         private bool IsSpare(int frameIndex)
         {
-            return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
+            return _rolls[frameIndex] + _rolls[frameIndex + 1] == 10;
+        }
+
+        private bool IsStrike(int frameIndex)
+        {
+            return _rolls[frameIndex] == 10;
+        }
+
+        private int SpareBonus(int frameIndex)
+        {
+            return _rolls[frameIndex + 2];
+        }
+
+        private int StrikeBonus(int frameIndex)
+        {
+            return _rolls[frameIndex + 1] + _rolls[frameIndex + 2];
+        }
+
+        private int SumOfBallsInFrame(int frameIndex)
+        {
+            return _rolls[frameIndex] + _rolls[frameIndex + 1];
         }
     }
 }

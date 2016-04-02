@@ -38,6 +38,16 @@ namespace Katas.Bowling.Tests
             Assert.Equal(16, game.Score);
         }
 
+        [Fact]
+        public void OneStrike()
+        {
+            RollStrike();
+            game.Roll(3);
+            game.Roll(4);
+            RollMany(16, 0);
+            Assert.Equal(24, game.Score);
+        }
+
         private void RollMany(int n, int pins)
         {
             for (int i = 0; i < n; i++)
@@ -48,6 +58,11 @@ namespace Katas.Bowling.Tests
         {
             game.Roll(5);
             game.Roll(5);
+        }
+
+        private void RollStrike()
+        {
+            game.Roll(10);
         }
     }
 }
