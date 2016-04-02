@@ -50,6 +50,14 @@ namespace Katas.Bowling.Tests
             Assert.Equal(24, _game.Score());
         }
 
+        [Fact]
+        public void PerfectGame()
+        {
+            RollMany(12, 10);
+
+            Assert.Equal(300, _game.Score());
+        }
+
         private void RollStrike()
         {
             _game.Roll(10);
