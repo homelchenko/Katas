@@ -12,7 +12,7 @@ namespace Katas.Bowling.Tests
 
             // Act
             int gameScore = game.Score();
-            
+
             // Assert
             Assert.Equal(0, gameScore);
         }
@@ -23,17 +23,27 @@ namespace Katas.Bowling.Tests
             // Arrange
             Game game = new Game();
 
-            game.Roll(1);                       // 1st roll
-            for (int i = 0; i < 19; i++)        // The rest are...
-            {
-                game.Roll(0);                   // ... empty
-            }
+            game.Roll(1);
+            RollBallAndFail(game, 19);
 
             // Act
             int gameScore = game.Score();
 
             // Assert
             Assert.Equal(1, gameScore);
+        }
+
+        private static void RollBallAndFail(Game game, int rollsNumber)
+        {
+            RollBall(game, rollsNumber, 0);
+        }
+
+        private static void RollBall(Game game, int rollsNumber, int pinsKnocked)
+        {
+            for (int rollIndex = 0; rollIndex < rollsNumber; rollIndex++)
+            {
+                game.Roll(pinsKnocked);
+            }
         }
     }
 }
