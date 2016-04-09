@@ -16,5 +16,24 @@ namespace Katas.Bowling.Tests
             // Assert
             Assert.Equal(0, gameScore);
         }
+
+        [Fact]
+        public void Score_WhenFirstRollGivesOneAndTheRestAreZero_ShouldBeOne()
+        {
+            // Arrange
+            Game game = new Game();
+
+            game.Roll(1);                       // 1st roll
+            for (int i = 0; i < 19; i++)        // The rest are...
+            {
+                game.Roll(0);                   // ... empty
+            }
+
+            // Act
+            int gameScore = game.Score();
+
+            // Assert
+            Assert.Equal(1, gameScore);
+        }
     }
 }
