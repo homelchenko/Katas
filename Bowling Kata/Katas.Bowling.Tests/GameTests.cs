@@ -11,7 +11,7 @@ namespace Katas.Bowling.Tests
             Assert.Equal(expected, gameScore);
         }
 
-        private static void RollBallAndFail(Game game, int times)
+        private static void RollBallAndMiss(Game game, int times)
         {
             RollBall(game, times, 0);
         }
@@ -30,7 +30,7 @@ namespace Katas.Bowling.Tests
             // Arrange
             Game game = new Game();
 
-            RollBallAndFail(game, 20);
+            RollBallAndMiss(game, 20);
 
             // Act & Assert
             AssertGameScore(game, 0);
@@ -43,10 +43,25 @@ namespace Katas.Bowling.Tests
             Game game = new Game();
 
             game.Roll(1);
-            RollBallAndFail(game, 19);
+            RollBallAndMiss(game, 19);
 
-            // Act &  Assert
+            // Act & Assert
             AssertGameScore(game, 1);
+        }
+
+        [Fact]
+        public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
+        {
+            // Arrange
+            Game game = new Game();
+
+            game.Roll(1);
+            game.Roll(1);
+
+            RollBallAndMiss(game, 18);
+
+            // Act & Assert
+            AssertGameScore(game, 2);
         }
     }
 }

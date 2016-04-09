@@ -2,21 +2,24 @@
 {
     public class Game
     {
-        private bool isSet = false;
-        private int pins = 0;
+        private readonly int[] rolls = new int[21];
 
-        public int Score()
-        {
-            return this.pins;
-        }
+        private int pendingRollNumber;
 
         public void Roll(int pins)
         {
-            if (!this.isSet)
+            this.rolls[pendingRollNumber++] = pins;
+        }
+
+        public int Score()
+        {
+            int score = 0;
+            for (int rollIndex = 0; rollIndex < 21; rollIndex++)
             {
-                this.pins = pins;
-                this.isSet = true;
+                score += rolls[rollIndex];
             }
+
+            return score;
         }
     }
 }
