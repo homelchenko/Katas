@@ -2,7 +2,7 @@
 {
     public class Game
     {
-        private readonly int[] rolls = new int[21];
+        private readonly int[] rolls = new int[20];
 
         private int pendingRollNumber;
 
@@ -14,7 +14,7 @@
         public int Score()
         {
             int score = 0;
-            for (int rollIndex = 0; rollIndex < 21; rollIndex++)
+            for (int rollIndex = 0; rollIndex < 20; rollIndex++)
             {
                 score += rolls[rollIndex];
             }
