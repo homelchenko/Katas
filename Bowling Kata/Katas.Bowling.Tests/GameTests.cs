@@ -63,5 +63,22 @@ namespace Katas.Bowling.Tests
             // Act & Assert
             AssertGameScore(game, 2);
         }
+
+        [Fact]
+        public void Score_WhenAllRollsGivesOne_ShouldBeTwenty()
+        {
+            // Arrange
+            Game game = new Game();
+
+            int rollNum = 20;
+            int pinsPerRoll = 1;
+
+            RollBall(game, rollNum, pinsPerRoll);
+
+            // Act & Arrange
+            AssertGameScore(game, 20);
+        }
+
+        // TODO: What if I roll after the game is done? Like 21st time, or 22nd?
     }
 }
