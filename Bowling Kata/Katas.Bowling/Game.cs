@@ -8,7 +8,7 @@
 
         public void Roll(int pins)
         {
-            this.rolls[this.pendingRollNumber++] = pins;
+            this.rolls[pendingRollNumber++] = pins;
         }
 
         public int Score()
