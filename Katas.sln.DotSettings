@@ -1,11 +1,16 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ArrangeThisQualifier/@EntryIndexedValue">DO_NOT_SHOW</s:String>
 	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=ParameterHidesMember/@EntryIndexedValue">DO_NOT_SHOW</s:String>
+	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=StyleCop_002ESA1600/@EntryIndexedValue">DO_NOT_SHOW</s:String>
+	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=StyleCop_002ESA1604/@EntryIndexedValue">DO_NOT_SHOW</s:String>
+	<s:String x:Key="/Default/CodeInspection/Highlighting/InspectionSeverities/=StyleCop_002ESA1633/@EntryIndexedValue">DO_NOT_SHOW</s:String>
 	
-	<s:String x:Key="/Default/CodeStyle/CodeCleanup/Profiles/=Default/@EntryIndexedValue">&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;Profile name="Default"&gt;&lt;RemoveCodeRedundancies&gt;True&lt;/RemoveCodeRedundancies&gt;&lt;CSMakeFieldReadonly&gt;True&lt;/CSMakeFieldReadonly&gt;&lt;CSMakeAutoPropertyGetOnly&gt;True&lt;/CSMakeAutoPropertyGetOnly&gt;&lt;CSArrangeQualifiers&gt;True&lt;/CSArrangeQualifiers&gt;&lt;CSEnforceVarKeywordUsageSettings&gt;True&lt;/CSEnforceVarKeywordUsageSettings&gt;&lt;CSShortenReferences&gt;True&lt;/CSShortenReferences&gt;&lt;CSReformatCode&gt;True&lt;/CSReformatCode&gt;&lt;CSharpFormatDocComments&gt;True&lt;/CSharpFormatDocComments&gt;&lt;CSReorderTypeMembers&gt;True&lt;/CSReorderTypeMembers&gt;&lt;CSOptimizeUsings&gt;&lt;OptimizeUsings&gt;True&lt;/OptimizeUsings&gt;&lt;EmbraceInRegion&gt;False&lt;/EmbraceInRegion&gt;&lt;RegionName&gt;&lt;/RegionName&gt;&lt;/CSOptimizeUsings&gt;&lt;/Profile&gt;</s:String>
+	<s:String x:Key="/Default/CodeStyle/CodeCleanup/Profiles/=Default/@EntryIndexedValue">&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;Profile name="Default"&gt;&lt;RemoveCodeRedundancies&gt;True&lt;/RemoveCodeRedundancies&gt;&lt;CSMakeFieldReadonly&gt;True&lt;/CSMakeFieldReadonly&gt;&lt;CSMakeAutoPropertyGetOnly&gt;True&lt;/CSMakeAutoPropertyGetOnly&gt;&lt;CSArrangeQualifiers&gt;True&lt;/CSArrangeQualifiers&gt;&lt;CSEnforceVarKeywordUsageSettings&gt;True&lt;/CSEnforceVarKeywordUsageSettings&gt;&lt;CSShortenReferences&gt;True&lt;/CSShortenReferences&gt;&lt;CSReformatCode&gt;True&lt;/CSReformatCode&gt;&lt;CSharpFormatDocComments&gt;True&lt;/CSharpFormatDocComments&gt;&lt;CSReorderTypeMembers&gt;True&lt;/CSReorderTypeMembers&gt;&lt;CSOptimizeUsings&gt;&lt;OptimizeUsings&gt;True&lt;/OptimizeUsings&gt;&lt;EmbraceInRegion&gt;False&lt;/EmbraceInRegion&gt;&lt;RegionName&gt;&lt;/RegionName&gt;&lt;/CSOptimizeUsings&gt;&lt;StyleCop&gt;&lt;FixViolations&gt;True&lt;/FixViolations&gt;&lt;CreateXmlDocStubs&gt;False&lt;/CreateXmlDocStubs&gt;&lt;/StyleCop&gt;&lt;/Profile&gt;</s:String>
 	
 	
 	<s:String x:Key="/Default/CodeStyle/CodeCleanup/RecentlyUsedProfile/@EntryValue">Default</s:String>
+	<s:String x:Key="/Default/CodeStyle/CodeCleanup/SilentCleanupProfile/@EntryValue">Default</s:String>
+	<s:String x:Key="/Default/CodeStyle/CodeFormatting/CSharpCodeStyle/ThisQualifier/INSTANCE_MEMBERS_QUALIFY_MEMBERS/@EntryValue">15</s:String>
 	
 	
 	<s:Int64 x:Key="/Default/CodeStyle/CodeFormatting/CSharpFormat/BLANK_LINES_AROUND_SINGLE_LINE_AUTO_PROPERTY/@EntryValue">1</s:Int64>
@@ -19,87 +24,8 @@
 	
 	<s:String x:Key="/Default/CodeStyle/CSharpFileLayoutPatterns/Pattern/@EntryValue">&lt;?xml version="1.0" encoding="utf-16"?&gt;&#xD;
 &lt;Patterns xmlns="urn:schemas-jetbrains-com:member-reordering-patterns"&gt;&#xD;
-  &lt;TypePattern Priority="0" DisplayName="COM interfaces or structs"&gt;&#xD;
-    &lt;TypePattern.Match&gt;&#xD;
-      &lt;Or&gt;&#xD;
-        &lt;And&gt;&#xD;
-          &lt;Kind Is="Interface" /&gt;&#xD;
-          &lt;Or&gt;&#xD;
-            &lt;HasAttribute Name="System.Runtime.InteropServices.InterfaceTypeAttribute" /&gt;&#xD;
-            &lt;HasAttribute Name="System.Runtime.InteropServices.ComImport" /&gt;&#xD;
-          &lt;/Or&gt;&#xD;
-        &lt;/And&gt;&#xD;
-        &lt;Kind Is="Struct" /&gt;&#xD;
-      &lt;/Or&gt;&#xD;
-    &lt;/TypePattern.Match&gt;&#xD;
-  &lt;/TypePattern&gt;&#xD;
-  &lt;TypePattern Priority="0" DisplayName="xUnit Test Fixtures" RemoveRegions="All"&gt;&#xD;
-    &lt;TypePattern.Match&gt;&#xD;
-      &lt;And&gt;&#xD;
-        &lt;Kind Is="Class" /&gt;&#xD;
-        &lt;Or&gt;&#xD;
-          &lt;HasAttribute Name="NUnit.Framework.TestCaseFixtureAttribute" Inherited="True" /&gt;&#xD;
-          &lt;HasAttribute Name="NUnit.Framework.TestFixtureAttribute" Inherited="True" /&gt;&#xD;
-        &lt;/Or&gt;&#xD;
-      &lt;/And&gt;&#xD;
-    &lt;/TypePattern.Match&gt;&#xD;
-    &lt;Entry DisplayName="Constants"&gt;&#xD;
-      &lt;Entry.Match&gt;&#xD;
-        &lt;Kind Is="Constant" /&gt;&#xD;
-      &lt;/Entry.Match&gt;&#xD;
-      &lt;Entry.SortBy&gt;&#xD;
-        &lt;Name Is="Enter Pattern Here" /&gt;&#xD;
-      &lt;/Entry.SortBy&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-    &lt;Entry DisplayName="Static fields"&gt;&#xD;
-      &lt;Entry.Match&gt;&#xD;
-        &lt;And&gt;&#xD;
-          &lt;Static /&gt;&#xD;
-          &lt;Kind Is="Field" /&gt;&#xD;
-        &lt;/And&gt;&#xD;
-      &lt;/Entry.Match&gt;&#xD;
-      &lt;Entry.SortBy&gt;&#xD;
-        &lt;Access /&gt;&#xD;
-        &lt;Name Is="Enter Pattern Here" /&gt;&#xD;
-      &lt;/Entry.SortBy&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-    &lt;Entry DisplayName="Setup/Teardown Methods"&gt;&#xD;
-      &lt;Entry.Match&gt;&#xD;
-        &lt;And&gt;&#xD;
-          &lt;Kind Is="Method" /&gt;&#xD;
-          &lt;Or&gt;&#xD;
-            &lt;HasAttribute Name="NUnit.Framework.SetUpAttribute" Inherited="True" /&gt;&#xD;
-            &lt;HasAttribute Name="NUnit.Framework.TearDownAttribute" Inherited="True" /&gt;&#xD;
-            &lt;HasAttribute Name="NUnit.Framework.FixtureSetUpAttribute" Inherited="True" /&gt;&#xD;
-            &lt;HasAttribute Name="NUnit.Framework.FixtureTearDownAttribute" Inherited="True" /&gt;&#xD;
-            &lt;HasAttribute Name="NUnit.Framework.TestFixtureSetUpAttribute" /&gt;&#xD;
-          &lt;/Or&gt;&#xD;
-        &lt;/And&gt;&#xD;
-      &lt;/Entry.Match&gt;&#xD;
-      &lt;Entry.SortBy&gt;&#xD;
-        &lt;Name Is="Enter Pattern Here" /&gt;&#xD;
-      &lt;/Entry.SortBy&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-    &lt;Entry DisplayName="Test Methods"&gt;&#xD;
-      &lt;Entry.Match&gt;&#xD;
-        &lt;And&gt;&#xD;
-          &lt;Kind Is="Method" /&gt;&#xD;
-          &lt;HasAttribute Name="NUnit.Framework.TestAttribute" /&gt;&#xD;
-        &lt;/And&gt;&#xD;
-      &lt;/Entry.Match&gt;&#xD;
-      &lt;Entry.SortBy&gt;&#xD;
-        &lt;Name /&gt;&#xD;
-      &lt;/Entry.SortBy&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-    &lt;Entry DisplayName="All other members"&gt;&#xD;
-      &lt;Entry.SortBy&gt;&#xD;
-        &lt;Access /&gt;&#xD;
-        &lt;Name Is="Enter Pattern Here" /&gt;&#xD;
-      &lt;/Entry.SortBy&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-  &lt;/TypePattern&gt;&#xD;
   &lt;TypePattern Priority="0" DisplayName="Default Pattern" RemoveRegions="AllExceptGenerated"&gt;&#xD;
-    &lt;Entry Priority="100" DisplayName="Public Delegates"&gt;&#xD;
+    &lt;Entry DisplayName="Public Delegates" Priority="100"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Access Is="Public" /&gt;&#xD;
@@ -110,7 +36,7 @@
         &lt;Name /&gt;&#xD;
       &lt;/Entry.SortBy&gt;&#xD;
     &lt;/Entry&gt;&#xD;
-    &lt;Entry Priority="100" DisplayName="Public Enums"&gt;&#xD;
+    &lt;Entry DisplayName="Public Enums" Priority="100"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Access Is="Public" /&gt;&#xD;
@@ -180,12 +106,7 @@
         &lt;Name Is="Enter Pattern Here" /&gt;&#xD;
       &lt;/Entry.SortBy&gt;&#xD;
     &lt;/Entry&gt;&#xD;
-    &lt;Entry DisplayName="All other static members"&gt;&#xD;
-      &lt;Entry.Match&gt;&#xD;
-        &lt;Static /&gt;&#xD;
-      &lt;/Entry.Match&gt;&#xD;
-    &lt;/Entry&gt;&#xD;
-    &lt;Entry Priority="100" DisplayName="Interface Implementations"&gt;&#xD;
+    &lt;Entry DisplayName="Interface Implementations" Priority="100"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Member" /&gt;&#xD;
@@ -194,6 +115,14 @@
       &lt;/Entry.Match&gt;&#xD;
       &lt;Entry.SortBy&gt;&#xD;
         &lt;ImplementsInterface Immediate="True" /&gt;&#xD;
+      &lt;/Entry.SortBy&gt;&#xD;
+    &lt;/Entry&gt;&#xD;
+    &lt;Entry DisplayName="xUnit Tests"&gt;&#xD;
+      &lt;Entry.Match&gt;&#xD;
+        &lt;HasAttribute Name="Xunit.FactAttribute" Inherited="True" /&gt;&#xD;
+      &lt;/Entry.Match&gt;&#xD;
+      &lt;Entry.SortBy&gt;&#xD;
+        &lt;Name /&gt;&#xD;
       &lt;/Entry.SortBy&gt;&#xD;
     &lt;/Entry&gt;&#xD;
     &lt;Entry DisplayName="All other members"&gt;&#xD;
@@ -253,7 +182,9 @@
 	<s:String x:Key="/Default/CodeStyle/Naming/XamlNaming/UserRules/=NAMESPACE_005FALIAS/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="aaBb" /&gt;</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/XamlNaming/UserRules/=XAML_005FFIELD/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb" /&gt;</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/XamlNaming/UserRules/=XAML_005FRESOURCE/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb" /&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolBuilderDuo/UseMsbuildSolutionBuilder/@EntryValue">NewVersion</s:String>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EAddAccessorOwnerDeclarationBracesMigration/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EAlwaysTreatStructAsNotReorderableMigration/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EMigrateBlankLinesAroundFieldToBlankLinesAroundProperty/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EMigrateThisQualifierSettings/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ESettingsUpgrade_002EMigrateThisQualifierSettings/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/StyleCopOptions/InsertTextIntoDocumentation/@EntryValue">False</s:Boolean></wpf:ResourceDictionary>
