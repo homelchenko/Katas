@@ -1,29 +1,26 @@
-﻿using Xunit;
-
-namespace Katas.Bowling.Tests
+﻿namespace Katas.Bowling.Tests
 {
+    using Xunit;
+
     public class GameTests
     {
-        private static void AssertGameScore(Game game, int expected)
+        [Fact]
+        public void Score_WhenAllRollsGivesOne_ShouldBeTwenty()
         {
-            int gameScore = game.Score();
+            // Arrange
+            Game game = new Game();
 
-            Assert.Equal(expected, gameScore);
+            int rollNum = 20;
+            int pinsPerRoll = 1;
+
+            RollBall(game, rollNum, pinsPerRoll);
+
+            // Act & Arrange
+            AssertGameScore(game, 20);
         }
 
-        private static void RollBallAndMiss(Game game, int times)
-        {
-            RollBall(game, times, 0);
-        }
-
-        private static void RollBall(Game game, int times, int pinsKnocked)
-        {
-            for (int rollIndex = 0; rollIndex < times; rollIndex++)
-            {
-                game.Roll(pinsKnocked);
-            }
-        }
-
+        /// This is a list of items that have to be considered later
+        /// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
         [Fact]
         public void Score_WhenAllRollsGiveZeroPins_ShouldBeZero()
         {
@@ -49,6 +46,12 @@ namespace Katas.Bowling.Tests
             AssertGameScore(game, 1);
         }
 
+        //[Fact]
+        //public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
+        //{
+        //    Assert.False(true);
+        //}
+
         [Fact]
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
         {
@@ -64,21 +67,24 @@ namespace Katas.Bowling.Tests
             AssertGameScore(game, 2);
         }
 
-        [Fact]
-        public void Score_WhenAllRollsGivesOne_ShouldBeTwenty()
+        private static void AssertGameScore(Game game, int expected)
         {
-            // Arrange
-            Game game = new Game();
+            int gameScore = game.Score();
 
-            int rollNum = 20;
-            int pinsPerRoll = 1;
-
-            RollBall(game, rollNum, pinsPerRoll);
-
-            // Act & Arrange
-            AssertGameScore(game, 20);
+            Assert.Equal(expected, gameScore);
         }
 
-        // TODO: What if I roll after the game is done? Like 21st time, or 22nd?
+        private static void RollBall(Game game, int times, int pinsKnocked)
+        {
+            for (int rollIndex = 0; rollIndex < times; rollIndex++)
+            {
+                game.Roll(pinsKnocked);
+            }
+        }
+
+        private static void RollBallAndMiss(Game game, int times)
+        {
+            RollBall(game, times, 0);
+        }
     }
 }

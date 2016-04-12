@@ -8,7 +8,7 @@
 
         public void Roll(int pins)
         {
-            this.rolls[pendingRollNumber++] = pins;
+            this.rolls[this.pendingRollNumber++] = pins;
         }
 
         public int Score()
@@ -16,7 +16,7 @@
             int score = 0;
             for (int rollIndex = 0; rollIndex < 20; rollIndex++)
             {
-                score += rolls[rollIndex];
+                score += this.rolls[rollIndex];
             }
 
             return score;
