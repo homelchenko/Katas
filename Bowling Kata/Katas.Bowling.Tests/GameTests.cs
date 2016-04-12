@@ -19,8 +19,9 @@
             AssertGameScore(game, 20);
         }
 
-        /// This is a list of items that have to be considered later
-        /// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
+        //// This is a list of items that have to be considered later
+        //// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
+
         [Fact]
         public void Score_WhenAllRollsGiveZeroPins_ShouldBeZero()
         {
@@ -46,11 +47,11 @@
             AssertGameScore(game, 1);
         }
 
-        //[Fact]
-        //public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
-        //{
-        //    Assert.False(true);
-        //}
+        [Fact]
+        public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
+        {
+            Assert.False(true);
+        }
 
         [Fact]
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
