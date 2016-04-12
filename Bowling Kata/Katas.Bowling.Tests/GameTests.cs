@@ -1,7 +1,9 @@
-﻿namespace Katas.Bowling.Tests
-{
-    using Xunit;
+﻿using Xunit;
 
+namespace Katas.Bowling.Tests
+{
+    //// This is a list of items that have to be considered later
+    //// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
     public class GameTests
     {
         [Fact]
@@ -18,9 +20,6 @@
             // Act & Arrange
             AssertGameScore(game, 20);
         }
-
-        //// This is a list of items that have to be considered later
-        //// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
 
         [Fact]
         public void Score_WhenAllRollsGiveZeroPins_ShouldBeZero()
