@@ -77,6 +77,20 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenSpareInTenthFrameAndZeroInExtraRoll_ShouldBeTen()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollBallAndMiss(game, 18);
+            RollSpare(game);
+            game.Roll(0);
+
+            // Act & Assert
+            AssertGameScore(game, 10);
+        }
+
+        [Fact]
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
         {
             // Arrange
@@ -89,20 +103,6 @@ namespace Katas.Bowling.Tests
 
             // Act & Assert
             AssertGameScore(game, 2);
-        }
-
-        [Fact]
-        public void Score_WhenSpareInTenthFrameAndZeroInExtraRoll_ShouldBeTen()
-        {
-            // Arrange
-            Game game = StartNewGame();
-
-            RollBallAndMiss(game, 18);
-            RollSpare(game);
-            game.Roll(0);
-
-            // Act & Assert
-            AssertGameScore(game, 10);
         }
 
         private static void AssertGameScore(Game game, int expected)
