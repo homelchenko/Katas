@@ -2,7 +2,7 @@
 {
     public class Game
     {
-        private readonly int[] rolls = new int[20];
+        private readonly int[] rolls = new int[21];
 
         private int pendingRollNumber;
 

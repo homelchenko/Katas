@@ -10,7 +10,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenAllRollsGivesOne_ShouldBeTwenty()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             int rollNum = 20;
             int pinsPerRoll = 1;
@@ -25,7 +25,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenAllRollsGiveZeroPins_ShouldBeZero()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             RollBallAndMiss(game, 20);
 
@@ -37,7 +37,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenFirstRollGivesOneAndTheRestAreZero_ShouldBeOne()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             game.Roll(1);
             RollBallAndMiss(game, 19);
@@ -50,7 +50,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenSpareInFirstAndThenThreeAndFive_ShouldBeTwentyOne()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             RollSpare(game);
             game.Roll(3);
@@ -65,7 +65,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             RollSpare(game);
             game.Roll(3);
@@ -80,7 +80,7 @@ namespace Katas.Bowling.Tests
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
         {
             // Arrange
-            Game game = new Game();
+            Game game = StartNewGame();
 
             game.Roll(1);
             game.Roll(1);
@@ -89,6 +89,20 @@ namespace Katas.Bowling.Tests
 
             // Act & Assert
             AssertGameScore(game, 2);
+        }
+
+        [Fact]
+        public void Score_WhenSpareInTenthFrameAndZeroInExtraRoll_ShouldBeTen()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollBallAndMiss(game, 18);
+            RollSpare(game);
+            game.Roll(0);
+
+            // Act & Assert
+            AssertGameScore(game, 10);
         }
 
         private static void AssertGameScore(Game game, int expected)
@@ -115,6 +129,11 @@ namespace Katas.Bowling.Tests
         {
             game.Roll(6);
             game.Roll(4);
+        }
+
+        private static Game StartNewGame()
+        {
+            return new Game();
         }
     }
 }
