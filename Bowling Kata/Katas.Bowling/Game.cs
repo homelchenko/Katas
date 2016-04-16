@@ -23,9 +23,7 @@
             {
                 if (this.IsSpare(frameIndex))
                 {
-                    int nextFrameFirstRollIndex = GetFirstRollIndex(frameIndex + 1);
-
-                    score += 10 + this.rolls[nextFrameFirstRollIndex];
+                    score += 10 + this.ScoreFrame(frameIndex + 1);
                 }
                 else
                 {
