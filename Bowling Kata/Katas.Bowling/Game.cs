@@ -6,11 +6,6 @@
 
         private int pendingRollNumber;
 
-        private static int GetFirstRollIndex(int frameIndex)
-        {
-            return 2 * frameIndex;
-        }
-
         public void Roll(int pins)
         {
             this.rolls[this.pendingRollNumber++] = pins;
@@ -34,11 +29,9 @@
             return score;
         }
 
-        private int ScoreSpareBonus(int frameIndex)
+        private static int GetFirstRollIndex(int frameIndex)
         {
-            int nextFrameIndex = frameIndex + 1;
-
-            return this.ScoreFrame(nextFrameIndex);
+            return 2 * frameIndex;
         }
 
         private bool IsSpare(int frameIndex)
@@ -53,6 +46,15 @@
             int firstRollIndex = GetFirstRollIndex(frameIndex);
 
             return this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1];
+        }
+
+        private int ScoreSpareBonus(int frameIndex)
+        {
+            int nextFrameIndex = frameIndex + 1;
+
+            int firstRollIndexInNextFrame = GetFirstRollIndex(nextFrameIndex);
+
+            return this.rolls[firstRollIndexInNextFrame];
         }
     }
 }

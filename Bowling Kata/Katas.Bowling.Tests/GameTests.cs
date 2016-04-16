@@ -62,6 +62,21 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenSpareInFirstAndThenThreeAndFive_ShouldBeTwentyOne()
+        {
+            // Arrange
+            Game game = new Game();
+
+            RollSpare(game);
+            game.Roll(3);
+            game.Roll(5);
+            RollBallAndMiss(game, 16);
+
+            // Act & Assert
+            AssertGameScore(game, 21);
+        }
+
+        [Fact]
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
         {
             // Arrange
