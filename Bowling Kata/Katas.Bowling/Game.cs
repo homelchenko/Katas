@@ -2,13 +2,24 @@
 {
     public class Game
     {
+        private readonly int[] firstRollIndices = new int[11];
+
         private readonly int[] rolls = new int[21];
+
+        private int pendingFrameNumber;
 
         private int pendingRollNumber;
 
         public void Roll(int pins)
         {
-            this.rolls[this.pendingRollNumber++] = pins;
+            this.rolls[this.pendingRollNumber] = pins;
+
+            if (this.pendingRollNumber % 2 == 0)
+            {
+                this.firstRollIndices[this.pendingRollNumber / 2] = this.pendingRollNumber;
+            }
+
+            this.pendingRollNumber++;
         }
 
         public int Score()
@@ -30,21 +41,21 @@
             return score;
         }
 
-        private static int GetFirstRollIndex(int frameIndex)
+        private int GetFirstRollIndex(int frameIndex)
         {
-            return 2 * frameIndex;
+            return this.firstRollIndices[frameIndex];
         }
 
         private bool IsSpare(int frameIndex)
         {
-            int firstRollIndex = GetFirstRollIndex(frameIndex);
+            int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
             return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == 10;
         }
 
         private int ScoreFrame(int frameIndex)
         {
-            int firstRollIndex = GetFirstRollIndex(frameIndex);
+            int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
             return this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1];
         }
@@ -53,7 +64,7 @@
         {
             int nextFrameIndex = frameIndex + 1;
 
-            int firstRollIndexInNextFrame = GetFirstRollIndex(nextFrameIndex);
+            int firstRollIndexInNextFrame = this.GetFirstRollIndex(nextFrameIndex);
 
             return this.rolls[firstRollIndexInNextFrame];
         }
