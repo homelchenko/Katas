@@ -29,9 +29,7 @@
                 }
                 else
                 {
-                    int firstRollIndex = GetFirstRollIndex(frameIndex);
-
-                    score += this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1];
+                    score += this.ScoreFrame(frameIndex);
                 }
             }
 
@@ -43,6 +41,13 @@
             int firstRollIndex = GetFirstRollIndex(frameIndex);
 
             return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == 10;
+        }
+
+        private int ScoreFrame(int frameIndex)
+        {
+            int firstRollIndex = GetFirstRollIndex(frameIndex);
+
+            return this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1];
         }
     }
 }
