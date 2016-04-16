@@ -49,7 +49,16 @@ namespace Katas.Bowling.Tests
         [Fact]
         public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
         {
-            Assert.False(true);
+            // Arrange
+            Game game = new Game();
+
+            RollSpare(game);
+            game.Roll(3);
+
+            RollBallAndMiss(game, 17);
+
+            // Act & Assert
+            AssertGameScore(game, 16);
         }
 
         [Fact]
@@ -85,6 +94,12 @@ namespace Katas.Bowling.Tests
         private static void RollBallAndMiss(Game game, int times)
         {
             RollBall(game, times, 0);
+        }
+
+        private static void RollSpare(Game game)
+        {
+            game.Roll(6);
+            game.Roll(4);
         }
     }
 }
