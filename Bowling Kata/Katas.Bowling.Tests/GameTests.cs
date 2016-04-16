@@ -7,7 +7,7 @@ namespace Katas.Bowling.Tests
     public class GameTests
     {
         [Fact]
-        public void Score_WhenAllRollsGivesOne_ShouldBeTwenty()
+        public void Score_WhenAllRollsGivesOnePin_ShouldBeTwenty()
         {
             // Arrange
             Game game = StartNewGame();
@@ -34,7 +34,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-        public void Score_WhenFirstRollGivesOneAndTheRestAreZero_ShouldBeOne()
+        public void Score_WhenFirstRollGivesOnePinAndTheRestGiveZero_ShouldBeOne()
         {
             // Arrange
             Game game = StartNewGame();
@@ -47,7 +47,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-        public void Score_WhenSpareInFirstAndThenThreeAndFive_ShouldBeTwentyOne()
+        public void Score_WhenSpareInFirstFrameAndThenThreeAndFivePins_ShouldBeTwentyOne()
         {
             // Arrange
             Game game = StartNewGame();
@@ -62,7 +62,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-        public void Score_WhenSpareInFirstFrameAndThreeInNextRoll_ShouldBeSixteen()
+        public void Score_WhenSpareInFirstFrameAndThenThreePinsInNextRoll_ShouldBeSixteen()
         {
             // Arrange
             Game game = StartNewGame();
@@ -77,7 +77,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-        public void Score_WhenSpareInTenthAndThreeInExtraRoll_ShouldBeThirteen()
+        public void Score_WhenSpareInTenthFrameAndThenThreePinsInExtraRoll_ShouldBeThirteen()
         {
             // Arrange
             Game game = StartNewGame();
@@ -91,8 +91,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-        // TODO: Remove 'Frame' word
-        public void Score_WhenSpareInTenthFrameAndZeroInExtraRoll_ShouldBeTen()
+        public void Score_WhenSpareInTenthFrameAndThenZeroPinsInExtraRoll_ShouldBeTen()
         {
             // Arrange
             Game game = StartNewGame();
@@ -106,9 +105,7 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
-
-        // TODO: Test names are inconsistent
-        public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
+        public void Score_WhenTwoFirstRollsGiveOnePinAndTheRestGiveZero_ShouldBeTwo()
         {
             // Arrange
             Game game = StartNewGame();
