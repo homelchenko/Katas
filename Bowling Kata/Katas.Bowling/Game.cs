@@ -2,7 +2,7 @@
 {
     public class Game
     {
-        private readonly int[] rolls = new int[21];
+        private readonly int[] rolls = new int[22];
 
         private int pendingRollNumber;
 
@@ -14,7 +14,10 @@
         public int Score()
         {
             int score = 0;
-            for (int frameIndex = 0; frameIndex < 10; frameIndex++)
+
+            int frameCount = this.rolls.Length / 2;
+
+            for (int frameIndex = 0; frameIndex < frameCount; frameIndex++)
             {
                 if (this.IsSpare(frameIndex))
                 {
