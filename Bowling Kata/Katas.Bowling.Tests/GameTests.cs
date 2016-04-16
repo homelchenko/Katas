@@ -77,6 +77,21 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenSpareInTenthAndThreeInExtraRoll_ShouldBeThirteen()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollBallAndMiss(game, 18);
+            RollSpare(game);
+            game.Roll(3);
+
+            // Act & Assert
+            AssertGameScore(game, 13);
+        }
+
+        [Fact]
+        // TODO: Remove 'Frame' word
         public void Score_WhenSpareInTenthFrameAndZeroInExtraRoll_ShouldBeTen()
         {
             // Arrange
@@ -91,6 +106,8 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+
+        // TODO: Test names are inconsistent
         public void Score_WhenTwoFirstRollsGivesOneAndTheRestAreZero_ShouldBeTwo()
         {
             // Arrange
