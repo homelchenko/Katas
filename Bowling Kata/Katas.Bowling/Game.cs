@@ -23,7 +23,7 @@
             {
                 if (this.IsSpare(frameIndex))
                 {
-                    score += 10 + this.ScoreFrame(frameIndex + 1);
+                    score += 10 + this.ScoreSpareBonus(frameIndex);
                 }
                 else
                 {
@@ -32,6 +32,13 @@
             }
 
             return score;
+        }
+
+        private int ScoreSpareBonus(int frameIndex)
+        {
+            int nextFrameIndex = frameIndex + 1;
+
+            return this.ScoreFrame(nextFrameIndex);
         }
 
         private bool IsSpare(int frameIndex)
