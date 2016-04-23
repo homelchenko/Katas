@@ -46,7 +46,7 @@
                 int firstRollIndex = this.GetFirstRollIndex(frameIndex);
                 if (this.rolls[firstRollIndex] == 10)
                 {
-                    score += 10 + this.ScoreFrame(frameIndex + 1);
+                    score += 10 + this.ScoreStrikeBonus(frameIndex);
                 }
                 else if (this.IsSpare(frameIndex))
                 {
@@ -92,6 +92,13 @@
             int firstRollIndexInNextFrame = this.GetFirstRollIndex(nextFrameIndex);
 
             return this.rolls[firstRollIndexInNextFrame];
+        }
+
+        private int ScoreStrikeBonus(int frameIndex)
+        {
+            int firstRollIndex = this.GetFirstRollIndex(frameIndex + 1);
+
+            return this.rolls[firstRollIndex];
         }
     }
 }
