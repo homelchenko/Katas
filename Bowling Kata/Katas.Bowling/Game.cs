@@ -43,8 +43,7 @@
 
             for (int frameIndex = 0; frameIndex < 10; frameIndex++)
             {
-                int firstRollIndex = this.GetFirstRollIndex(frameIndex);
-                if (this.rolls[firstRollIndex] == 10)
+                if (this.IsStrike(frameIndex) == 10)
                 {
                     score += 10 + this.ScoreStrikeBonus(frameIndex);
                 }
@@ -71,6 +70,13 @@
             int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
             return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == 10;
+        }
+
+        private int IsStrike(int frameIndex)
+        {
+            int firstRollIndex = this.GetFirstRollIndex(frameIndex);
+
+            return this.rolls[firstRollIndex];
         }
 
         private void SaveFirstRollIndexForCurrentFrame()
