@@ -104,9 +104,7 @@
 
         private int ScoreStrikeBonus(int frameIndex)
         {
-            int firstRollIndex = this.GetFirstRollIndex(frameIndex + 1);
-
-            return this.rolls[firstRollIndex];
+            return this.ScoreFrame(frameIndex + 1);
         }
     }
 }

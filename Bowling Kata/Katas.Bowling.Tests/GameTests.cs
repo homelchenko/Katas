@@ -108,6 +108,22 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenStrikeInFirstFrameAndThenThreeAndFive_ShouldBeTwentySix()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollStrike(game);
+            game.Roll(3);
+            game.Roll(5);
+
+            RollBallAndMiss(game, 16);
+
+            // Act & Assert
+            AssertGameScore(game, 26);
+        }
+
+        [Fact]
         public void Score_WhenStrikeInFirstFrameAndThenThreePins_ShouldBeSixteen()
         {
             // Arrange
