@@ -2,7 +2,7 @@
 {
     public class Game
     {
-        public const int MaxPinsInFrame = 10;
+        public const int TotalPinCount = 10;
 
         private readonly int[] firstRollIndices = new int[11];
 
@@ -18,7 +18,7 @@
         {
             this.rolls[this.pendingRollNumber] = pins;
 
-            if (pins == MaxPinsInFrame)
+            if (pins == TotalPinCount)
             {
                 // Strike
                 this.SaveFirstRollIndexForCurrentFrame();
@@ -47,11 +47,11 @@
             {
                 if (this.IsStrike(frameIndex))
                 {
-                    score += MaxPinsInFrame + this.ScoreStrikeBonus(frameIndex);
+                    score += TotalPinCount + this.ScoreStrikeBonus(frameIndex);
                 }
                 else if (this.IsSpare(frameIndex))
                 {
-                    score += MaxPinsInFrame + this.ScoreSpareBonus(frameIndex);
+                    score += TotalPinCount + this.ScoreSpareBonus(frameIndex);
                 }
                 else
                 {
@@ -71,14 +71,14 @@
         {
             int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
-            return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == MaxPinsInFrame;
+            return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == TotalPinCount;
         }
 
         private bool IsStrike(int frameIndex)
         {
             int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
-            return this.rolls[firstRollIndex] == MaxPinsInFrame;
+            return this.rolls[firstRollIndex] == TotalPinCount;
         }
 
         private void SaveFirstRollIndexForCurrentFrame()
