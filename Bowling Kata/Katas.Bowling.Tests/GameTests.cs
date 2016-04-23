@@ -138,6 +138,21 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenStrikeInTenthFrameAndThenAnotherOneInFirstExtraRollAndZeroPinsInSecondExtraRoll()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollBallAndMiss(game, 18);
+            RollStrike(game);
+            RollStrike(game);
+            game.Roll(0);
+
+            // Act & Assert
+            AssertGameScore(game, 20);
+        }
+
+        [Fact]
         public void Score_WhenTwoFirstRollsGiveOnePinAndTheRestGiveZero_ShouldBeTwo()
         {
             // Arrange

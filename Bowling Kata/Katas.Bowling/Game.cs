@@ -4,7 +4,7 @@
     {
         public const int TotalPinCount = 10;
 
-        private readonly int[] firstRollIndices = new int[11];
+        private readonly int[] firstRollIndices = new int[12];
 
         private readonly int[] rolls = new int[21];
 
