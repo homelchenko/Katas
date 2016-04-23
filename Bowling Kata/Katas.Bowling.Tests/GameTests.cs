@@ -4,6 +4,9 @@ namespace Katas.Bowling.Tests
 {
     //// This is a list of items that have to be considered later
     //// TODO: What if I roll after the game is done? Like 21st time, or 22nd?
+    //// TODO: Roll cannot give more than 10 pins or less then 0
+    //// TODO: Rolls within one frame are bound by 10 pins
+    //// TODO: What if we hit 10 pins on 2nd roll?
     public class GameTests
     {
         [Fact]
@@ -105,6 +108,20 @@ namespace Katas.Bowling.Tests
         }
 
         [Fact]
+        public void Score_WhenStrikeInFirstFrameAndThenThreePins_ShouldBeSixteen()
+        {
+            // Arrange
+            Game game = StartNewGame();
+
+            RollStrike(game);
+            game.Roll(3);
+            RollBallAndMiss(game, 17);
+
+            // Act & Assert
+            AssertGameScore(game, 16);
+        }
+
+        [Fact]
         public void Score_WhenTwoFirstRollsGiveOnePinAndTheRestGiveZero_ShouldBeTwo()
         {
             // Arrange
@@ -143,6 +160,11 @@ namespace Katas.Bowling.Tests
         {
             game.Roll(6);
             game.Roll(4);
+        }
+
+        private static void RollStrike(Game game)
+        {
+            game.Roll(10);
         }
 
         private static Game StartNewGame()

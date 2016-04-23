@@ -10,13 +10,28 @@
 
         private int pendingRollNumber;
 
+        private bool wasLastRollInFrame = true;
+
         public void Roll(int pins)
         {
             this.rolls[this.pendingRollNumber] = pins;
 
-            if (this.pendingRollNumber % 2 == 0)
+            if (pins == 10)
             {
-                this.firstRollIndices[this.pendingRollNumber / 2] = this.pendingRollNumber;
+                // Strike
+                this.SaveFirstRollIndexForCurrentFrame();
+                this.pendingFrameNumber++;
+                this.wasLastRollInFrame = true;
+            }
+            else if (this.wasLastRollInFrame)
+            {
+                this.SaveFirstRollIndexForCurrentFrame();
+                this.pendingFrameNumber++;
+                this.wasLastRollInFrame = false;
+            }
+            else
+            {
+                this.wasLastRollInFrame = true;
             }
 
             this.pendingRollNumber++;
@@ -28,7 +43,12 @@
 
             for (int frameIndex = 0; frameIndex < 10; frameIndex++)
             {
-                if (this.IsSpare(frameIndex))
+                int firstRollIndex = this.GetFirstRollIndex(frameIndex);
+                if (this.rolls[firstRollIndex] == 10)
+                {
+                    score += 10 + this.ScoreFrame(frameIndex + 1);
+                }
+                else if (this.IsSpare(frameIndex))
                 {
                     score += 10 + this.ScoreSpareBonus(frameIndex);
                 }
@@ -51,6 +71,11 @@
             int firstRollIndex = this.GetFirstRollIndex(frameIndex);
 
             return (this.rolls[firstRollIndex] + this.rolls[firstRollIndex + 1]) == 10;
+        }
+
+        private void SaveFirstRollIndexForCurrentFrame()
+        {
+            this.firstRollIndices[this.pendingFrameNumber] = this.pendingRollNumber;
         }
 
         private int ScoreFrame(int frameIndex)
